@@ -1,0 +1,142 @@
+﻿ALGO : garage
+
+BUT: 
+ENTREES:
+SORTIES: 
+
+TYPE marqueVoiture = (toyota,bmw,peugeot,audi,lexus)
+	
+TYPE essence = (essence,diesel,GPL,electrique,hybride)
+	
+TYPE date = ENREGISTREMENT
+	annee : ENTIER
+	mois : ENTIER
+	jour : ENTIER
+FINENREGISTREMENT
+	
+TYPE adresse = ENREGISTREMENT
+	nb : ENTIER
+	voie : CHAINE
+	CP : ENTIER
+	ville : CHAINE
+	pays : CHAINE
+	nbTel : ENRIER
+	mail : CHAINE
+FINENREGISTREMENT
+	
+TYPE garage = ENREGISTREMENT
+	nom : CHAINE
+	adresse : ENREGISTREMENT
+FINENREGISTREMENT
+
+TYPE voiture = ENREGISTREMENT
+	quelGarage : ENTIER
+	marque : marqueVoiture
+	modele : CHAINE
+	energie : essence
+	puissanceFiscale : ENTIER
+	puissanceDYN : ENTIER
+	couleur : CHAINE
+	option : CHAINE
+	annee : ENTIER
+	prix : ENTIER
+	coteArgus : 
+	dateMiseCirculation : date
+	age : ENTIER
+	palque : CHAINE
+FINENREGISTREMENT
+
+PROCEDURE main ()
+
+	VAR
+		choix : ENTIER
+
+	DEBUT
+		REPTER
+			ECRIRE "Veuillez choisir un garage, entre 1 et 2"
+			ECRIRE "ENTREZ 0 pour quitter"
+			LIRE (choix)
+		JUSQU'A (choix = 1) OU (choix = 2) OU (choix = 0)
+		SI (choix = 1) OU (choix = 2) ALORS
+			entrerGarage()
+		FINSI
+	FINPROCEDURE
+
+PROCEDURE entrerGarage (garages : TABLEAU DE garage)
+	
+	choixVoiture
+	
+	DEBUT
+		ECRIRE "Entrez le nom du garage"
+		LIRE (garages[choix].garage.nom)
+		ECRIRE "Entrez le N° de l'adresse du garage"
+		LIRE (garages[choix].garage.adresse.nb)
+		ECRIRE "Entrez la voie de l'adresse du garage"
+		LIRE (garages[choix].garage.adresse.voie)
+		ECRIRE "Entrez la ville du garage"
+		LIRE (garages[choix].garage.adresse.ville)
+		ECRIRE "Entrez le code postal du garage"
+		LIRE (garages[choix].garage.adresse.CP)
+		ECRIRE "Entrez le pays du garage"
+		LIRE (garages[choix].garage.adresse.pays)
+		ECRIRE "Entrez le numéro de téléphone du garage"
+		LIRE (garages[choix].garage.adresse.nbTel)
+		REPETER
+			ECRIRE "Entrez l'adresse mail du garage"
+			LIRE (garages[choix].garage.adresse.mail)
+			IsValidMail
+		JUSQU'A IsValidMail = VRAI
+	FINPROCEDURE
+
+FONCTION IsValidMail ()
+
+	DEBUT
+		
+	FINPROCEDURE
+
+PROCEDURE entrerVoiture ()
+
+	DEBUT
+		REPETER
+			ECRIRE "Quel voiture voulez vous entrer ?"
+			LIRE (choixVoiture)
+		JUSQU'A (choixVoiture <= 30) ET (choixVoiture > 0)
+		REPETER
+			ECRIRE " Entrez à quel garage la voiture appartient"
+			LIRE (voitures[choixVoiture].voiture.quelGarage)
+		JUSQU'A (voitures[choixVoiture].voiture.quelGarage = 1) OU (voitures[choixVoiture].voiture.quelGarage = 2)
+		ECRIRE "Etrez la marque parmi : toyota,bmw,peugeot,audi,lexus"
+		LIRE (voitures[choixVoiture].voiture.marque)
+		ECRIRE "Entrez le modèle de la voiture"
+		LIRE (voitures[choixVoiture].voiture.modele)
+		ECRIRE "Entrez quel type d'énergie utilise la voiture parmi : essence,diesel,GPL,electrique,hybride"
+		LIRE (voitures[choixVoiture.voiture.energie)
+		ECRIRE "Entrez la puissance fiscale de la voiture"
+		LIRE (voitures[choixVoiture].voiture.puissanceFiscale)
+		ECRIRE "Entrez le puissance DYN de la voiture"
+		LIRE (voitures[choixVoiture].voitures.puissanceDYN)
+		ECRIRE "Entrez la couleur de la voiture"
+		LIRE (voitures[choixVoiture].voiture.couleur)
+		ECRIRE "Quelles sont les options de la voiture, séparé par un #"
+		LIRE (voitures[choixVoiture].voiture.option)
+		ECRIRE "Entrez l'année du modèle de la voiture"
+		LIRE (voitures.[choixVoiture].voiture.annee)
+		ECRIRE "Entrez le prix du modèle de la voiture"
+		LIRE (voitures[choixVoiture].voiture.prix)
+		voitures[choixVoiture].voiture.coteArgus <- calculCoteArgus()
+	FINPROCEDURE
+	
+VAR
+	garages [1..2] TABLEAU DE garage
+	voitures [1..30] TABLEAU de voiture
+	firstchoix : ENTIER
+	
+DEBUT
+	REPETER
+		ECRIRE "Entrez 1 pour ajouter un garage"
+		ECRIRE "Entrez 2 pour ajouter une voiture"
+		ECRIRE "Entrez 0 pour quitter"
+		LIRE (firstchoix)
+	JUSQU'A (firstchoix = 1) ou (firstchoix = 2) OU (firstchoix = 0)
+	
+FIN
